@@ -10,8 +10,8 @@ st.set_page_config(
 )
 
 # App title
-st.title("🎵 Song Player")
-st.markdown("### Incomplete Module Style Guide Collection")
+st.title("Song Player")
+st.markdown("### Incomplete Module Style Guide")
 
 # Get all audio files
 audio_files = []
@@ -46,14 +46,3 @@ else:
             st.audio(audio_bytes, format='audio/mp3' if selected_song.endswith('.mp3') else 'audio/wav')
     except Exception as e:
         st.error(f"Error loading audio file: {e}")
-    
-    # Display all songs list
-    st.markdown("---")
-    st.markdown("**All Songs:**")
-    for i, song in enumerate(audio_files, 1):
-        file_size = os.path.getsize(song) / (1024 * 1024)  # Size in MB
-        st.markdown(f"{i}. {song} ({file_size:.1f} MB)")
-
-# Footer
-st.markdown("---")
-st.markdown("*Simple audio player built with Streamlit*")
